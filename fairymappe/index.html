@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>An Anciente Mappe of Fairyland</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background: #ffffff;
+        color: #111111;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .intro {
+        min-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1.25rem;
+        background: #ffffff;
+      }
+
+      .intro h1 {
+        margin: 0 0 1rem 0;
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        font-weight: normal;
+        letter-spacing: 0.03em;
+      }
+
+      .intro p {
+        max-width: 42rem;
+        font-size: 1.1rem;
+        line-height: 1.65;
+        color: #222222;
+      }
+
+      .horizontal-section {
+        position: relative;
+        background: #ffffff;
+      }
+
+      .horizontal-wrap {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        background: #ffffff;
+      }
+
+      .horizontal-text {
+        width: 34%;
+        min-width: 250px;
+        padding: 0 1.25rem 0 1.5rem;
+      }
+
+      .horizontal-step {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .horizontal-step p {
+        font-size: 1.18rem;
+        line-height: 1.58;
+        max-width: 25rem;
+        color: #111111;
+      }
+
+      .horizontal-media {
+        width: 66%;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+        background: #ffffff;
+        z-index: 1;
+      }
+
+      .horizontal-media img {
+        height: 100%;
+        width: auto;
+        max-width: none;
+        object-fit: contain;
+        object-position: left center;
+        display: block;
+        will-change: transform;
+      }
+
+      .center-text-section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 9vh 1.4rem;
+        background: #ffffff;
+        position: relative;
+        z-index: 3;
+        min-height: 52vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .center-block {
+        min-height: 42vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: clamp(1.35rem, 3.1vw, 2.2rem);
+        line-height: 1.45;
+        color: #111111;
+      }
+
+      .split-section {
+        position: relative;
+        background: #ffffff;
+      }
+
+      .split-wrap {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+      }
+
+      .split-section.media-left .split-wrap {
+        flex-direction: row-reverse;
+      }
+
+      .split-text {
+        width: 42%;
+        padding: 0 1.4rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .story-step {
+        min-height: 86vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .story-step.image-beat {
+        min-height: 38vh;
+      }
+
+      .story-step p {
+        font-size: 1.15rem;
+        line-height: 1.6;
+        color: #111111;
+        max-width: 29rem;
+      }
+
+      .split-media {
+        width: 58%;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .image-fade {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .image-fade img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        opacity: 0;
+        transition: opacity 220ms linear;
+      }
+
+      .image-fade img.active {
+        opacity: 1;
+      }
+
+      .spacer {
+        height: 10vh;
+      }
+
+      .quote {
+        font-style: italic;
+      }
+
+      @media (max-width: 980px) {
+        .horizontal-wrap,
+        .split-wrap,
+        .split-section.media-left .split-wrap {
+          flex-direction: column;
+        }
+
+        .horizontal-text,
+        .split-text {
+          width: 100%;
+          min-width: 0;
+          padding: 0 1.2rem;
+          order: 2;
+        }
+
+        .horizontal-media,
+        .split-media {
+          width: 100%;
+          height: 58vh;
+          min-height: 290px;
+          order: 1;
+        }
+
+        .horizontal-step {
+          min-height: 72vh;
+        }
+
+        .story-step {
+          min-height: 72vh;
+        }
+
+        .center-block {
+          min-height: 33vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="intro">
+      <h1><em>An Anciente Mappe of Fairyland</em></h1>
+      <p>A guided journey through Bernard Sleigh's 1917 map.</p>
+      <p>By Elizabeth Schaefer, CSTC 2310</p>
+    </section>
+
+    <section class="horizontal-section" data-horizontal-pan>
+      <div class="horizontal-wrap">
+        <div class="horizontal-text">
+          <div class="horizontal-step">
+            <p><em>An Anciente Mappe of Fairyland</em>, Newly Discovered and Set Forth was published in 1917.</p>
+          </div>
+          <div class="horizontal-step">
+            <p>It was created by English artist Bernard Sleigh.</p>
+          </div>
+          <div class="horizontal-step">
+            <p>At nearly six feet long, it brings together myths, fairy tales, and children's heroes all in one map.</p>
+          </div>
+        </div>
+        <div class="horizontal-media" aria-hidden="true">
+          <img src="images/fairymappe.jpg" alt="An Anciente Mappe of Fairyland panorama" />
+        </div>
+      </div>
+    </section>
+
+    <section class="center-text-section">
+      <div class="center-block">Let's zoom in.</div>
+    </section>
+
+    <section class="split-section" data-image-story>
+      <div class="split-wrap">
+        <div class="split-text">
+          <div class="story-step" data-image="images/knights.png">
+            <p>English chivalric legend appears with figures such as</p>
+          </div>
+          <div class="story-step" data-image="images/knights_shadow.png">
+            <p>King Arthur, Lancelot, and Excalibur.</p>
+          </div>
+          <div class="story-step image-beat" data-image="images/knights_caption.png">
+            <p></p>
+          </div>
+          <div class="story-step" data-image="images/german.png">
+            <p>German fairy tales are woven in as well.</p>
+          </div>
+          <div class="story-step" data-image="images/german_shadow.png">
+            <p>Figures like Rapunzel, Hansel and Gretel, and the Seven Dwarves bring the stories of the Brothers Grimm into the map.</p>
+          </div>
+          <div class="story-step" data-image="images/greek.png">
+            <p>Greek myths emerge,</p>
+          </div>
+          <div class="story-step" data-image="images/greek_shadow.png">
+            <p>with the Hydra, Cerberus, the Labyrinth, the Golden Fleece, and a smattering of Greek gods.</p>
+          </div>
+          <div class="story-step" data-image="images/welsh.png">
+            <p>Even anti-Welsh rhymes come into play.</p>
+          </div>
+          <div class="story-step" data-image="images/welsh_shadow.png">
+            <p></p>
+          </div>
+        </div>
+        <div class="split-media" aria-hidden="true">
+          <div class="image-fade"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="center-text-section">
+      <div class="center-block">All of these characters come from Eurocentric tales,</div>
+      <div class="spacer"></div>
+      <div class="center-block">uniting different European traditions into one shared imaginative world.</div>
+    </section>
+
+    <section class="center-text-section">
+      <div class="center-block">Sleigh emphasizes this lack of cohesive heritage with some of these fantastical details:</div>
+    </section>
+
+    <section class="split-section" data-image-story>
+      <div class="split-wrap">
+        <div class="split-text">
+          <div class="story-step" data-image="images/narcissus_base.png">
+            <p>For example,</p>
+          </div>
+          <div class="story-step" data-image="images/narcissus_shadow.png">
+            <p>Narcissus and Satyrs reside alongside</p>
+          </div>
+          <div class="story-step" data-image="images/narcissus_cinderella.png">
+            <p>Cinderella, Jack and Jill, and Little Red Riding Hood.</p>
+          </div>
+          <div class="story-step" data-image="images/peterpan.png">
+            <p>The English classic Peter Pan's house,</p>
+          </div>
+          <div class="story-step" data-image="images/peterpan_shadow.png">
+            <p>looks out onto Danish author Hans Christian Anderson's The Little Mermaid.</p>
+          </div>
+        </div>
+        <div class="split-media" aria-hidden="true">
+          <div class="image-fade"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="center-text-section">
+      <div class="center-block">Even the compass rose blends cartographic order with fantasy:</div>
+    </section>
+
+    <section class="split-section" data-image-story>
+      <div class="split-wrap">
+        <div class="split-text">
+          <div class="story-step" data-image="images/compass_plain.png">
+            <p></p>
+          </div>
+          <div class="story-step" data-image="images/compass_1.png">
+            <p>There are directions such as North of Nowhere</p>
+          </div>
+          <div class="story-step" data-image="images/compass_2.png">
+            <p>and East of the Sun.</p>
+          </div>
+          <div class="story-step" data-image="images/compass_3.png">
+            <p>The distance on the map is measured by "Thoughts,"</p>
+          </div>
+          <div class="story-step" data-image="images/tomthumb.png">
+            <p>with joking nods towards pictorial scale.</p>
+          </div>
+        </div>
+        <div class="split-media" aria-hidden="true">
+          <div class="image-fade"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="center-text-section">
+      <div class="center-block">The compass rose looks like the tool of a real map, promising order and orientation, but reveals further magic.</div>
+    </section>
+
+    <section class="center-text-section">
+      <div class="center-block">We see similar treatment with the map legend.</div>
+    </section>
+
+    <section class="split-section media-left" data-image-story>
+      <div class="split-wrap">
+        <div class="split-text">
+          <div class="story-step" data-image="images/key.png">
+            <p>These landmarks (wishing wells, elfin temples, fairie shrines) are presented as ordinary features of the landscape,</p>
+          </div>
+          <div class="story-step" data-image="images/key_arrows.png">
+            <p>furthering the sense of logical enchantment within the map.</p>
+          </div>
+          <div class="story-step" data-image="images/key_shadow.png">
+            <p></p>
+          </div>
+        </div>
+        <div class="split-media" aria-hidden="true">
+          <div class="image-fade"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="center-text-section">
+      <div class="center-block">The map of </em>Fairyland</em> suggests that all human stories and fairy tales are connected within one world.</div>
+    </section>
+
+    <section class="split-section" data-image-story>
+      <div class="split-wrap">
+        <div class="split-text">
+          <div class="story-step" data-image="images/prologue.png">
+            <p>In the introduction of the guide to <em>Fairyland</em>, there is this verse:</p>
+          </div>
+          <div class="story-step" data-image="images/prologue_highlight.png">
+            <p></p>
+          </div>
+        </div>
+        <div class="split-media" aria-hidden="true">
+          <div class="image-fade"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="horizontal-section" data-horizontal-pan>
+      <div class="horizontal-wrap">
+        <div class="horizontal-text">
+          <div class="horizontal-step">
+            <p>In <em>Fairyland</em>, this world of imagination becomes truly spatial.</p>
+          </div>
+          <div class="horizontal-step">
+            <p>The inner mind of a dreaming child can be entered, traversed, and even mapped.</p>
+          </div>
+          <div class="horizontal-step">
+            <p>If it can be mapped, then maybe it even exists... somewhere.</p>
+          </div>
+        </div>
+        <div class="horizontal-media" aria-hidden="true">
+          <img src="images/fairymappe.jpg" alt="The full map of Fairyland in horizontal scroll" />
+        </div>
+      </div>
+    </section>
+
+    <section class="split-section" data-image-story>
+      <div class="split-wrap">
+        <div class="split-text">
+          <div class="story-step" data-image="images/ww1_3.avif">
+            <p><em>An Anciente Mappe of Fairyland</em> was published in 1917, while World War I was still underway.</p>
+          </div>
+          <div class="story-step" data-image="images/ww1_1.jpg">
+            <p>Sleigh later wrote that "the Peter Pan in me emerged in full strength" during this time, "chiefly I suppose as a mental refuge from the hideous militarism of the time."</p>
+          </div>
+          <div class="story-step" data-image="images/ww1_2.avif">
+            <p><em>Fairyland</em>, then, is more than escapism.</p>
+          </div>
+          <div class="story-step" data-image="images/dragon.png">
+            <p>It is the child's imaginative world remade as a shelter,</p>
+          </div>
+          <div class="story-step" data-image="images/dragon_shadow.png">
+            <p>where the biggest worries are not bombs or tear gas, but dragons and witches in woods.</p>
+          </div>
+          <div class="story-step" data-image="images/peterpan.png">
+            <p>A landscape of fantasy becomes a refuge from the violence of the adult world,</p>
+          </div>
+          <div class="story-step" data-image="images/peterpan.png">
+            <p>a return to a Never Never Land.</p>
+          </div>
+          <div class="story-step" data-image="images/end.png">
+            <p class="quote">"And so, farewell; until that day of days when you and I may meet together there." - Bernard Sleigh, <em>An Anciente Mappe of Fairyland</em>.</p>
+          </div>
+        </div>
+        <div class="split-media" aria-hidden="true">
+          <div class="image-fade"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        const horizontalSections = Array.from(document.querySelectorAll("[data-horizontal-pan]"));
+        const imageStorySections = Array.from(document.querySelectorAll("[data-image-story]"));
+
+        function clamp(value, min, max) {
+          return Math.min(max, Math.max(min, value));
+        }
+
+        function panHorizontal(section) {
+          const image = section.querySelector(".horizontal-media img");
+          const media = section.querySelector(".horizontal-media");
+          if (!image || !media || !image.naturalWidth || !image.naturalHeight) return;
+
+          const start = section.offsetTop;
+          const range = Math.max(1, section.offsetHeight - window.innerHeight);
+          const t = clamp((window.scrollY - start) / range, 0, 1);
+
+          const mediaWidth = media.clientWidth;
+          const mediaHeight = media.clientHeight;
+          const scale = mediaHeight / image.naturalHeight;
+          const renderedWidth = image.naturalWidth * scale;
+          const maxPan = Math.max(0, renderedWidth - mediaWidth);
+          const offset = -t * maxPan;
+
+          image.style.transform = "translateX(" + offset + "px)";
+        }
+
+        function setupImageStories() {
+          imageStorySections.forEach(function (section) {
+            const fadeMount = section.querySelector(".image-fade");
+            const steps = Array.from(section.querySelectorAll(".story-step"));
+            const sources = steps
+              .map(function (step) {
+                return step.getAttribute("data-image");
+              })
+              .filter(Boolean);
+
+            if (!fadeMount || sources.length === 0) return;
+
+            const unique = Array.from(new Set(sources));
+            unique.forEach(function (src, idx) {
+              const img = document.createElement("img");
+              img.src = src;
+              img.alt = "";
+              if (idx === 0) img.classList.add("active");
+              fadeMount.appendChild(img);
+            });
+            section._images = Array.from(fadeMount.querySelectorAll("img"));
+            section._steps = steps;
+          });
+        }
+
+        function updateImageStory(section) {
+          const steps = section._steps || [];
+          const images = section._images || [];
+          if (steps.length === 0 || images.length === 0) return;
+
+          const start = section.offsetTop;
+          const range = Math.max(1, section.offsetHeight - window.innerHeight);
+          const t = clamp((window.scrollY - start) / range, 0, 1);
+          const scaled = t * (steps.length - 1);
+          const low = Math.floor(scaled);
+          const high = Math.min(steps.length - 1, low + 1);
+          const mix = scaled - low;
+
+          const lowSrc = steps[low].getAttribute("data-image");
+          const highSrc = steps[high].getAttribute("data-image");
+
+          images.forEach(function (img) {
+            img.style.opacity = 0;
+            img.classList.remove("active");
+          });
+
+          images.forEach(function (img) {
+            if (img.getAttribute("src") === lowSrc) {
+              img.style.opacity = 1 - mix;
+              img.classList.add("active");
+            }
+            if (img.getAttribute("src") === highSrc) {
+              const existingOpacity = parseFloat(img.style.opacity || "0");
+              img.style.opacity = Math.max(existingOpacity, mix);
+              img.classList.add("active");
+            }
+          });
+        }
+
+        function tick() {
+          horizontalSections.forEach(panHorizontal);
+          imageStorySections.forEach(updateImageStory);
+        }
+
+        setupImageStories();
+
+        window.addEventListener("scroll", function () {
+          requestAnimationFrame(tick);
+        }, { passive: true });
+        window.addEventListener("resize", tick);
+
+        document.querySelectorAll("img").forEach(function (img) {
+          img.addEventListener("load", tick);
+        });
+
+        tick();
+      })();
+    </script>
+  </body>
+</html>
