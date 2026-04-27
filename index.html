@@ -204,6 +204,24 @@
         font-style: italic;
       }
 
+      .final-image-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        padding: 2rem;
+      }
+      
+      .final-image-section img {
+        max-width: 90vw;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
       @media (max-width: 980px) {
         .horizontal-wrap,
         .split-wrap,
@@ -462,14 +480,15 @@
           <div class="story-step" data-image="fairymappe/images/peterpan.png">
             <p>a return to a Never Never Land.</p>
           </div>
-          <div class="story-step image-beat" data-image="fairymappe/images/end.png">
-            <p></p>
-          </div>
         </div>
         <div class="split-media" aria-hidden="true">
           <div class="image-fade"></div>
         </div>
       </div>
+    </section>
+
+    <section class="final-image-section">
+      <img src="fairymappe/images/end.png" alt="Ending image from An Anciente Mappe of Fairyland" />
     </section>
 
     <script>
